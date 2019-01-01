@@ -5,5 +5,11 @@ jobs:
       - image: circleci/golang:1.9
     working_directory: /go/src/github.com/Matsushin/go-ecs-ecr
       - checkout
-      - run: go get -v -t -d ./...
-      - run: go test -v ./...
+      - run:
+          name: "go get"
+          command: |
+            go get -v -t -d ./...
+      - run:
+          name: "go test"
+          command: |
+            go test -v ./...
