@@ -7,6 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Build
+          command: docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/go-sample-webapp:$CIRCLE_SHA1 .
+      - run:
           name: "go get"
           command: |
             go get -v -t -d ./...
