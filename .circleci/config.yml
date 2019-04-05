@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.9
-    working_directory: /go/src/github.com/Matsushin/go-ecs-ecr
+    working_directory: ~/go/src/github.com/Matsushin/go-ecs-ecr
     steps:
       - checkout
       - setup_remote_docker:
