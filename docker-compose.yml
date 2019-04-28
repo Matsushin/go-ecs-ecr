@@ -1,0 +1,11 @@
+version: '3.4'
+services:
+  web:
+    container_name: web 
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/go/src/github.com/Matsushin/go-ecs-ecr
+    ports:
+       - "8080:8080"

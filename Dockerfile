@@ -1,7 +1,15 @@
-# Building on top of Ubuntu 14.04. The best distro around.
-FROM ubuntu:14.04
+FROM golang:1.11.0-alpine3.8
 
-COPY ./go-ecs-ecr /opt/
+ENV GOPATH /go
+ENV CGO_ENABLED 0
+WORKDIR /go/src/github.com/Matsushin/go-ecs-ecr/
+
+RUN apk update && apk upgrade && \
+    apk add --no-cache git
+
+# 最初にonにするとfreshのgetができなくなるのでこのタイミングでonにする
+ENV GO111MODULE on
+COPY ./ /go/src/github.com/Matsushin/go-ecs-ecr/
+
 EXPOSE 8080
-
-ENTRYPOINT ["/opt/go-ecs-ecr"]
+CMD ["go", "run", "main.go"]
