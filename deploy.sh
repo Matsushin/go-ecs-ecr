@@ -41,7 +41,7 @@ deploy_cluster() {
 make_task_def(){
 	task_template='[
 		{
-			"name": "go-sample-webapp",
+			"name": "sample-webapp-container",
 			"image": "%s.dkr.ecr.ap-northeast-1.amazonaws.com/go-sample-webapp:%s",
 			"essential": true,
 			"memory": 200,
@@ -56,6 +56,7 @@ make_task_def(){
 	]'
 	
 	task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $CIRCLE_SHA1)
+    echo "Task: $task_def"
 }
 
 push_ecr_image(){
