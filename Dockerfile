@@ -11,5 +11,5 @@ RUN apk update && apk upgrade && \
 ENV GO111MODULE on
 COPY ./ /go/src/github.com/Matsushin/go-ecs-ecr/
 
-EXPOSE 80
+EXPOSE 8080
 CMD ["go", "run", "main.go"]
