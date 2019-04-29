@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Deploy
           command: |
-            #export AWS_DEFAULT_REGION="ap-northeast-1"
+            export AWS_DEFAULT_REGION="ap-northeast-1"
             #export ECS_TASK_FAMILY_NAME="sample-webapp-task${TARGET}"
             #export ECS_CONTAINER_DEFINITION_NAME="sample-webapp-containerX${TARGET}"
             #export EXECUTION_ROLE_ARN="arn:aws:iam::$AWS_ID:role/ecsTaskExecutionRole"
